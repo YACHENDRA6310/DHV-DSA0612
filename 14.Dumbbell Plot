@@ -1,0 +1,13 @@
+library(ggplot2)
+library(ggalt)
+data <- data.frame(
+  Product = c("A", "B", "C", "D", "E"),
+  Before_Campaign = c(200, 300, 400, 500, 600),
+  After_Campaign = c(250, 350, 450, 550, 650)
+)
+ggplot(data, aes(x = Before_Campaign, xend = After_Campaign, y = Product)) +
+  geom_dumbbell(size = 3, color = "grey", dot_guide = TRUE, dot_guide_size = 0.25) +
+  labs(title = "Sales Before and After Campaign",
+       x = "Sales",
+       y = "Product") +
+  theme_minimal()
